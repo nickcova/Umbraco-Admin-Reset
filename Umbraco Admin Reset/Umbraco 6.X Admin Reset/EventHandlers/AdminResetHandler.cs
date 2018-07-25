@@ -22,10 +22,10 @@ namespace Umbraco_6.X_Admin_Reset.EventHandlers
             string adminPassword = "admin12345";
 
             // Check for settings in the web.config file
-            adminUsername = GetValueFromConfigFile("newAdminUsername");
-            adminPassword = GetValueFromConfigFile("newAdminPassword");
+            adminUsername = GetValueFromConfigFile("UmbracoAdminResetUsername", adminUsername);
+            adminPassword = GetValueFromConfigFile("UmbracoAdminResetPassword", adminPassword);
 
-            // Check for user modification permissions
+            // Check for password modification permission
 
             // Update admin info
             if (!string.IsNullOrEmpty(adminUsername) && !string.IsNullOrEmpty(adminPassword))
@@ -33,9 +33,15 @@ namespace Umbraco_6.X_Admin_Reset.EventHandlers
                 try {
                     IUserService userService = ApplicationContext.Current.Services.UserService;
                     IUser adminUser = userService.GetUserById(0);
-                    userService.SavePassword(adminUser, adminPassword);
-                    adminUser.Username = adminUsername;
-                    userService.Save(adminUser, false);
+
+                    if (adminUser != null) {
+                        userService.SavePassword(adminUser, adminPassword);
+                        adminUser.Username = adminUsername;
+                        userService.Save(adminUser, false);
+                    } else
+                    {
+                        // Write error message?
+                    }                    
                 } catch (NotSupportedException nse)
                 {
                     LogHelper.Error(GetType(), "Failed to save the admin's password.", nse);
@@ -48,7 +54,7 @@ namespace Umbraco_6.X_Admin_Reset.EventHandlers
             // Delete .dll file
         }
 
-        private string GetValueFromConfigFile(string settingName)
+        private string GetValueFromConfigFile(string settingName, string currentValue)
         {
             throw new NotImplementedException();
         }
