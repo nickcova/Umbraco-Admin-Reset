@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco 6.X Admin Reset", "Umbraco 6.X Admin Reset\Umbraco 6.X Admin Reset.csproj", "{412A6A81-205A-4478-8E3B-738F1726292D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{412A6A81-205A-4478-8E3B-738F1726292D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412A6A81-205A-4478-8E3B-738F1726292D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412A6A81-205A-4478-8E3B-738F1726292D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412A6A81-205A-4478-8E3B-738F1726292D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C25D34B4-8A22-4546-A38A-2E3A3D72175A}
+	EndGlobalSection
+EndGlobal
